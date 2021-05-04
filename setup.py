@@ -40,11 +40,11 @@ setup(
     include_package_data=True,
     python_requires=">=3.5",
     install_requires=["tutor-openedx"],
-    entry_points={
-        "tutor.plugin.v0": [
-            "plan-course = tutorplan_course.plugin"
-        ]
-    },
+    # entry_points={
+    #     "tutor.plugin.v0": [
+    #         "plan-course = tutorplan_course.plugin"
+    #     ]
+    # },
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
@@ -61,10 +61,14 @@ setup(
     ],
     entry_points={
         'lms.djangoapp': [
-            "plan_course = plan_course.apps:plan_course",
+            "edx_when = edx_when.apps:EdxWhenConfig",
         ],
         'cms.djangoapp': [
-            "plan_course = plan_course.apps:plan_course",
+            "edx_when = edx_when.apps:EdxWhenConfig",
         ],
+        'openedx.block_structure_transformer': [
+            'load_date_data = edx_when.field_data:DateOverrideTransformer'
+        ],
+
     },
 )
