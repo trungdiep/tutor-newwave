@@ -1,0 +1,2 @@
+recursive-include tutorplan_course/patches *
+recursive-include tutorplan_course/templates *
